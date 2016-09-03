@@ -20,8 +20,14 @@ CREATE TABLE employee_department (
 	on delete cascade on update cascade;
 
 CREATE TABLE employee_hobby (
+						id_hobby int, 
+						name varchar(40), 
+						description varchar(50)
 );
 
-
+CREATE TABLE hobby_employee (
+						id_employee int,
+						id_hobby int
+);
 
 -- ...

@@ -38,3 +38,34 @@ INSERT INTO employee(first_name, last_name, id_department)
                    ('Fabian', 'Vallejo', 1)
 ;
 
+CREATE TABLE employee_hobby (
+                        id serial,
+                        name varchar(40),
+                        description varchar(50),
+                        PRIMARY KEY (id)
+);
+--Relacion empleado - hobby
+CREATE TABLE hobby_employee (
+                        id_employee int,
+                        id_hobby int,
+                        PRIMARY KEY (id_employee, id_hobby),
+                        FOREIGN KEY (id_employee) REFERENCES employee_department (id),
+                        FOREIGN KEY (id_hobby) REFERENCES employee_department (id)
+);
+--Insert Hobby
+INSERT INTO employee_hobby(name, description)
+    VALUES ('Natacion', 'Ejercicio sano'),
+           ('Leer', 'Aprendizaje, relajacion'),
+           ('Cine', 'Emocionanteg')
+;;
+--Insert Hobby - Employee
+INSERT INTO hobby_employee(id_employee, id_hobby)
+    VALUES (1, 1),
+                   (1, 3),
+                   (2, 1),
+                   (2, 2),
+                   (2, 3),
+                   (3, 2),
+                   (4, 1),
+                   (4, 3)
+;

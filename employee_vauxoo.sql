@@ -69,3 +69,11 @@ INSERT INTO hobby_employee(id_employee, id_hobby)
                    (4, 1),
                    (4, 3)
 ;
+
+ALTER TABLE employee
+  ADD COLUMN id_boss integer DEFAULT NULL;
+ALTER TABLE employee
+  ADD FOREIGN KEY (id_boss) REFERENCES employee_department (id);
+
+UPDATE employee SET id_boss = 1 WHERE id IN (1, 3, 4);
+UPDATE employee SET id_boss = 2 WHERE id = 2;
